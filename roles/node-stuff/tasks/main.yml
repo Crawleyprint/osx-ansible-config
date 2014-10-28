@@ -1,0 +1,7 @@
+---
+
+- name: install gulp
+  npm: name=gulp state=present global=yes
+
+- name: install bower
+  npm: name=bower state=present global=yes

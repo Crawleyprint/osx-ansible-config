@@ -1,0 +1,10 @@
+---
+- hosts: all
+  connection: local
+
+  roles:
+  - homebrew
+  - homebrew-cask
+  - node-stuff
+  - conf
+

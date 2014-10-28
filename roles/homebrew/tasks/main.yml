@@ -1,0 +1,26 @@
+---
+
+- name: update
+  homebrew: update_homebrew=yes
+  ignore_errors: yes
+
+- name: tap the cask
+  homebrew_tap: tap=caskroom/cask state=present
+
+- name: install homebrew cask
+  homebrew: name=brew-cask state=present
+
+- name: install git
+  homebrew: name=git state=present
+
+- name: install node
+  homebrew: name=node state=present
+
+- name: install silver searcher
+  homebrew: name=the_silver_searcher state=present
+
+- name: install rbenv
+  homebrew: name=rbenv state=present
+
+- name: install wget
+  homebrew: name=wget state=present

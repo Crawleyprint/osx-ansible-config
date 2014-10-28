@@ -1,0 +1,30 @@
+---
+
+- name: dotfiles | clone setup from github
+  git: repo=ssh://git@github.com/crawleyprint/dotfiles.git dest=/Users/mladen/repos/conf/ update=no
+
+- name: dotfiles | symlink .gitconfig
+  shell: ln -s /Users/mladen/repos/conf/gitconfig /Users/mladen/.gitconfig
+  ignore_errors: yes
+
+- name: dotfiles | clone setup from github
+  git: repo=ssh://git@github.com:Crawleyprint/vimconf.git dest=/Users/mladen/repos/vimconf/ update=no
+
+- name: dotfiles | symlink .vimrc
+  shell: ln -s /Users/mladen/repos/vimconf/vimrc /Users/mladen/.vimrc
+  ignore_errors: yes
+
+- name: dotfiles | symlink .vim/
+  shell: ln -s /Users/mladen/repos/vimconf/vim /Users/mladen/.vim
+  ignore_errors: yes
+
+- name: dotfiles | symlink .zshrc
+  shell: ln -s /Users/mladen/repos/conf/zshrc /Users/mladen/.zshrc
+  ignore_errors: yes
+
+- name: env | init rbenv
+  shell: rbenv rehash
+
+- name: env | set default terminal theme
+  copy: src=com.apple.Terminal.plist dest=/Users/mladen/Library/Preferences/com.apple.Terminal.plist owner=mladen group=staff mode=0600
+
